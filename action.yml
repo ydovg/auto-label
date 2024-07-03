@@ -1,0 +1,10 @@
+name: 'Wrapper action sample'
+inputs:
+  name:
+    description: 'TBD1'
+    default: 'GitHub'
+description: 'TBD'
+runs:
+  using: 'node12'
+  main: 'main.js'
+#  post: 'cleanup.js'
