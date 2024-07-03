@@ -10,9 +10,10 @@ async function main() {
         const {payload: {pull_request: pr}} = github.context
         const title = pr.title
         const message = pr.message
+        const body = pr.body
         const existLabels = pr.labels.map(x => x.name)
 
-        core.info(`PR has name ${title} message ${message} existsLabels ${existLabels}`)
+        core.info(`PR has name ${title} message=${message} existsLabels=${existLabels} body=${body}`)
 
     } catch (error) {
         core.setFailed(error.message)
