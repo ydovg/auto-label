@@ -3,6 +3,9 @@ inputs:
   name:
     description: 'TBD1'
     default: 'GitHub'
+  repo-token:
+    description: 'Token for the GitHub repository'
+    required: true
 description: 'TBD'
 runs:
   using: 'node12'
