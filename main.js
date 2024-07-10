@@ -21,12 +21,13 @@ async function run() {
 
         let labelsToAdd = [];
 
-        // Check the title and body for each word in the configured lists
-        for (const [label, words] of Object.entries(config)) {
-            for (const word of words) {
-                if (title.includes(word) || (body && body.includes(word))) {
+        // Check the title and body for each regex pattern in the configured lists
+        for (const [label, patterns] of Object.entries(config)) {
+            for (const pattern of patterns) {
+                const regex = new RegExp(pattern, 'i'); // 'i' for case-insensitive matching
+                if (regex.test(title) || (body && regex.test(body))) {
                     labelsToAdd.push(label);
-                    break; // Stop checking words for this label if one is found
+                    break; // Stop checking patterns for this label if one is found
                 }
             }
         }
