@@ -1,13 +1,12 @@
-name: 'Wrapper action sample'
+name: 'Label PR'
+description: 'Automatically labels a pull request based on title and body content'
 inputs:
-  name:
-    description: 'TBD1'
-    default: 'GitHub'
   repo-token:
     description: 'Token for the GitHub repository'
     required: true
-description: 'TBD'
+  config:
+    description: 'JSON configuration mapping labels to lists of regex patterns'
+    required: true
 runs:
-  using: 'node12'
-  main: 'main.js'
-#  post: 'cleanup.js'
+  using: 'node16'
+  main: 'index.js'
